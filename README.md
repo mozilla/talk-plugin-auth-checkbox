@@ -1,1 +1,1 @@
-# talk-plugin-health-report
+# talk-plugin-auth-checkbox

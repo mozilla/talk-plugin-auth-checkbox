@@ -7,20 +7,20 @@ import cn from 'classnames';
 const TermsLink = () => (
   <a
     className={styles.link}
-    href={t('talk-plugin-health-report.terms-link')}
+    href={t('talk-plugin-auth-checkbox.terms-link')}
     target="_blank"
   >
-    {t('talk-plugin-health-report.terms')}
+    {t('talk-plugin-auth-checkbox.terms')}
   </a>
 );
 
 const PrivacyLink = () => (
   <a
     className={styles.link}
-    href={t('talk-plugin-health-report.privacy-policy-link')}
+    href={t('talk-plugin-auth-checkbox.privacy-policy-link')}
     target="_blank"
   >
-    {t('talk-plugin-health-report.privacy-policy')}
+    {t('talk-plugin-auth-checkbox.privacy-policy')}
   </a>
 );
 
@@ -29,16 +29,15 @@ class TermsAndConditionsField extends React.Component {
   id = 'terms-and-conditions';
 
   componentWillMount() {
-    this.props.disableSubmitSignUpForm();
+    this.props.indicateBlocker();
   }
 
   onChange = ({ target: { checked } }) => {
+    this.setState({ checked });
     if (checked) {
-      this.setState(() => ({ checked }));
-      this.props.enableSubmitSignUpForm();
+      this.props.indicateBlockerResolved();
     } else {
-      this.setState(() => ({ checked }));
-      this.props.disableSubmitSignUpForm();
+      this.props.indicateBlocker();
     }
   };
 
@@ -47,22 +46,28 @@ class TermsAndConditionsField extends React.Component {
       <div
         className={cn(
           styles.fieldContainer,
-          'talk-plugin-health-report-field-container'
+          'talk-plugin-auth-checkbox-field-container'
         )}
       >
         <Checkbox
           checked={this.state.checked}
-          className="talk-plugin-health-report-checkbox"
+          className="talk-plugin-auth-checkbox-checkbox"
           onChange={this.onChange}
           id={this.id}
         />
-        <label id={this.id} className="talk-plugin-health-report-label">
-          {t('talk-plugin-health-report.copy')}
+        <div
+          id={this.id}
+          className={cn(
+            styles.textLabel,
+            'talk-plugin-auth-checkbox-text-label'
+          )}
+        >
+          {t('talk-plugin-auth-checkbox.copy')}
           <TermsLink />
-          {t('talk-plugin-health-report.and')}
+          {t('talk-plugin-auth-checkbox.and')}
           <PrivacyLink />
-          {t('talk-plugin-health-report.from')}
-        </label>
+          {t('talk-plugin-auth-checkbox.from')}
+        </div>
       </div>
     );
   }
