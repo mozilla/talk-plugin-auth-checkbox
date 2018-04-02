@@ -1,0 +1,9 @@
+{
+  "name": "talk-plugin-auth-checkbox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mozilla/talk-plugin-auth-checkbox.git",
+  "author": "Coral Project",
+  "license": "MIT",
+  "private": false
+}
