@@ -1,9 +1,24 @@
 {
-  "name": "talk-plugin-auth-checkbox",
+  "name": "@mozillafoundation/talk-plugin-auth-checkbox",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:mozilla/talk-plugin-auth-checkbox.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mozilla/talk-plugin-auth-checkbox.git"
+  },
   "author": "Coral Project",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "npm": "^5.8.0"
+  },
+  "description": "",
+  "bugs": {
+    "url": "https://github.com/mozilla/talk-plugin-auth-checkbox/issues"
+  },
+  "homepage": "https://github.com/mozilla/talk-plugin-auth-checkbox#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
